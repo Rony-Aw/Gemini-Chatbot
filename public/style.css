@@ -1,11 +1,22 @@
+/* Animated Gradient Background */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f0f2f5; /* Light background */
+    margin: 0;
+    /* Animated Background */
+    background: linear-gradient(-45deg, #6a82fb, #fc5c7d, #34e89e, #00d2ff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 20s ease infinite;
+    /* Centering content */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
 .main-content {
@@ -21,8 +32,8 @@ body {
 
 .main-title {
     font-size: 2.5rem;
-    color: #333; /* Darker text for light background */
-    text-shadow: none;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
 }
 
@@ -32,9 +43,11 @@ body {
     height: 75vh;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
 
@@ -45,7 +58,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    background-color: #e5ddd5;
+    background-color: transparent; /* Make it transparent to see the main background */
 }
 
 .chat-message {
@@ -54,6 +67,7 @@ body {
     max-width: 75%;
     line-height: 1.4;
     word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .user-message {
@@ -73,9 +87,11 @@ body {
 #chat-form {
     display: flex;
     padding: 10px;
-    border-top: 1px solid #ddd;
-    background-color: #f9f9f9;
-    align-items: flex-end; /* Align button to bottom */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(249, 249, 249, 0.8); /* Slightly transparent */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    align-items: flex-end;
     gap: 10px;
 }
 
@@ -88,14 +104,16 @@ body {
     line-height: 1.5;
     outline: none;
     transition: border-color 0.2s;
-    resize: none; /* Disable manual resize */
-    overflow-y: auto; /* Show scrollbar when needed */
-    max-height: 150px; /* Limit max height */
+    resize: none;
+    overflow-y: auto;
+    max-height: 150px;
     box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 #user-input:focus {
     border-color: #007bff;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 #chat-form button {
@@ -105,11 +123,12 @@ body {
     border-radius: 50%;
     width: 44px;
     height: 44px;
-    flex-shrink: 0; /* Prevent button from shrinking */
+    flex-shrink: 0;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.2s;
-    margin-bottom: 2px; /* Align with textarea */
+    margin-bottom: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 #chat-form button:hover {
