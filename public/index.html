@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="chat-container">
-        <div id="chat-box"></div>
-        <form id="chat-form">
-            <input type="text" id="user-input" placeholder="Ketik pesan Anda..." autocomplete="off">
-            <button type="submit">➤</button>
-        </form>
+    <div class="main-content">
+        <h1 class="main-title">Chatbot Gemini</h1>
+        <div class="chat-container">
+            <div id="chat-box"></div>
+            <form id="chat-form">
+                <textarea id="user-input" rows="1" placeholder="Ketik pesan Anda... (Shift+Enter untuk baris baru)"></textarea>
+                <button type="submit" id="send-button">➤</button>
+            </form>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
